@@ -1,0 +1,10 @@
+@namespace(
+	uri="http://atlanmod.neoemf.reference",
+	prefix="ref")
+package reference;
+
+import "platform:/resource//tutorial/src/graph.ecore";
+
+class Reference {
+	ref graph.Edge edge;
+}
