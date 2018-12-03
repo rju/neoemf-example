@@ -34,7 +34,7 @@ public class ExampleTutorial {
 		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		ExampleTutorial tutorial = new ExampleTutorial();
 		
 		try {
@@ -49,15 +49,23 @@ public class ExampleTutorial {
 
 			System.err.println(">> add graph");
 			graphResource.getContents().add(graphModel);
+			
+			Thread.sleep(1000);
+			
 			System.err.println(">> add reference");
 			referenceResource.getContents().add(referenceModel);
+			
+			Thread.sleep(1000);
+			
 			System.err.println(">> save graph");
 			graphResource.save(AbstractPersistenceOptionsBuilder.noOption());
 			System.err.println(">> save reference");
 			referenceResource.save(AbstractPersistenceOptionsBuilder.noOption());
 			
-			//tutorial.write(graphResource, graphModel);
-			//tutorial.write(referenceResource, referenceModel);
+			System.err.println(">> write graph");
+			tutorial.write(graphResource, graphModel);
+			System.err.println(">> write reference");
+			tutorial.write(referenceResource, referenceModel);
 			
 			referenceResource.unload();	
 			graphResource.unload();	
